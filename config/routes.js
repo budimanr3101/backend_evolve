@@ -21,8 +21,8 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
 
-  'GET /footers/about': 'FootersController/footers',
-  'GET /footers/sosmed': 'FootersController/footers',
+  'POST /footers/about': 'FootersController/footers',
+  'POST /footers/sosmed': 'FootersController/footers',
 
   /***************************************************************************
   *                                                                          *
