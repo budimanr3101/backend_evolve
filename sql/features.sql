@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2019 at 02:10 PM
+-- Generation Time: Jan 14, 2019 at 02:27 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -31,7 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `features` (
   `id` int(5) NOT NULL,
   `features_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
