@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2019 at 02:07 PM
+-- Generation Time: Jan 14, 2019 at 02:23 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -25,13 +25,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `footers`
+-- Table structure for table `footers_about`
 --
 
-CREATE TABLE `footers` (
+CREATE TABLE `footers_about` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `path_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `footers_sosmed`
+--
+
+CREATE TABLE `footers_sosmed` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `path_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -39,9 +52,15 @@ CREATE TABLE `footers` (
 --
 
 --
--- Indexes for table `footers`
+-- Indexes for table `footers_about`
 --
-ALTER TABLE `footers`
+ALTER TABLE `footers_about`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `footers_sosmed`
+--
+ALTER TABLE `footers_sosmed`
   ADD PRIMARY KEY (`id`);
 COMMIT;
 
