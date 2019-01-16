@@ -6,7 +6,16 @@
  */
 
 module.exports = {
-  
+    features: async function (req, res) {
+        await Features.create({
+            features_name: req.body.features_name,
+            icon: req.body.icon,
+            path: req.body.path
+        });
+        return res.status(200).send({
+            message: "Data berhasil di tambah"
+        });
 
+    }
 };
 

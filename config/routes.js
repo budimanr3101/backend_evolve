@@ -20,7 +20,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  'PUSH /features/': 'FeaturesController/features',
+  'POST /features/': 'FeaturesController/features',
 
 
   /***************************************************************************
