@@ -44,7 +44,7 @@ module.exports = {
                 msg: 'Data tidak ditemukan'
             });
         }
-        return res.send({
+        return res.status(200).send({
             message: 'Data ditemukan',
             data: data
         });
