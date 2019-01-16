@@ -24,7 +24,11 @@ module.exports.routes = {
   'GET /features/': 'FeaturesController/getFeatures',
   
 
+  'POST /footers/about': 'FootersController/footersAbout',
+  'POST /footers/sosmed': 'FootersController/footersSosmed',
 
+  'GET /footers/about': 'FootersController/getFootersAbout',
+  'GET /footers/sosmed': 'FootersController/getFootersSosmed'
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

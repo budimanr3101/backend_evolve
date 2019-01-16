@@ -55,5 +55,4 @@ module.exports.datastores = {
     url: 'mysql://root@localhost:3306/backend_evolve',
   },
 
-
 };
