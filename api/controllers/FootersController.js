@@ -29,10 +29,13 @@ module.exports = {
         const data = await FootersAbout.find();
         if (!data) {
             return res.status(404).send({
-                msg: 'Data tidak ditemukan'
+                message: 'Data tidak ditemukan'
             });
         }
-        return res.send(data);
+        return res.status(200).send({
+            message: 'Data ditemukan',
+            data: data
+        });
     },
     getFootersSosmed: async function(req, res) {
         const data = await FootersSosmed.find();
@@ -41,7 +44,10 @@ module.exports = {
                 msg: 'Data tidak ditemukan'
             });
         }
-        return res.send(data);
+        return res.send({
+            message: 'Data ditemukan',
+            data: data
+        });
     }
 };
 
