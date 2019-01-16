@@ -15,7 +15,13 @@ module.exports = {
         return res.status(200).send({
             message: "Data berhasil di tambah"
         });
+    },
 
-    }
+    getFeatures: async function (req, res) {
+        const data = await Features.find();
+            return res.status(404).send({
+                message: 'Data tidak ada bos'
+            });
+        }
 };
 

@@ -21,6 +21,8 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   'POST /features/': 'FeaturesController/features',
+  'GET /features/': 'FeaturesController/getFeatures',
+  
 
 
   /***************************************************************************
