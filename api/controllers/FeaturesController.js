@@ -24,7 +24,7 @@ module.exports = {
                 message: 'Data tidak ada bos'
             });
         }
-        return res.send(data);
+        return res.status(200).send;
     }
 };
 
