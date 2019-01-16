@@ -19,9 +19,12 @@ module.exports = {
 
     getFeatures: async function (req, res) {
         const data = await Features.find();
+        if (!data) {
             return res.status(404).send({
                 message: 'Data tidak ada bos'
             });
         }
+        return res.send(data);
+    }
 };
 
