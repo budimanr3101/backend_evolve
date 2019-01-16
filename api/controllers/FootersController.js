@@ -24,6 +24,24 @@ module.exports = {
         return res.status(200).send({
             message: "Footers sosmed berhasil ditambahkan"
         });
+    },
+    getFootersAbout: async function(req, res) {
+        const data = await FootersAbout.find();
+        if (!data) {
+            return res.status(404).send({
+                msg: 'Data tidak ditemukan'
+            });
+        }
+        return res.send(data);
+    },
+    getFootersSosmed: async function(req, res) {
+        const data = await FootersSosmed.find();
+        if (!data) {
+            return res.status(404).send({
+                msg: 'Data tidak ditemukan'
+            });
+        }
+        return res.send(data);
     }
 };
 
