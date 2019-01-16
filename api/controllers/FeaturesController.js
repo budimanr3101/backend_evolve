@@ -24,7 +24,9 @@ module.exports = {
                 message: 'Data tidak ada bos'
             });
         }
-        return res.status(200).send;
+        return res.status(200).send({
+            message: 'Data berhasil di ambil'
+        });
     }
 };
 
