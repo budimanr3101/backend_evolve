@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2019 at 03:07 PM
+-- Generation Time: Jan 18, 2019 at 11:17 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,6 +21,18 @@ SET time_zone = "+00:00";
 --
 -- Database: `backend_evolve`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `facilities`
+--
+
+CREATE TABLE `facilities` (
+  `id` int(11) NOT NULL,
+  `facility_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -72,26 +84,66 @@ INSERT INTO `footers_sosmed` (`id`, `name`, `icon`, `path_url`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hotel`
+-- Table structure for table `hotel_detail`
 --
 
-CREATE TABLE `hotel` (
+CREATE TABLE `hotel_detail` (
   `id` int(11) NOT NULL,
   `name` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
   `phone` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `rating` int(5) NOT NULL,
-  `photo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `price` bigint(20) NOT NULL,
+  `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Hotel | Apartment'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel_facility`
+--
+
+CREATE TABLE `hotel_facility` (
+  `id` int(11) NOT NULL,
+  `id_hotel` int(11) NOT NULL,
+  `id_facility` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel_photo`
+--
+
+CREATE TABLE `hotel_photo` (
+  `id` int(11) NOT NULL,
+  `id_hotel` int(11) NOT NULL,
+  `photo_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hotel_room`
+--
+
+CREATE TABLE `hotel_room` (
+  `id` int(11) NOT NULL,
+  `id_hotel` int(11) NOT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `facility` text COLLATE utf8_unicode_ci NOT NULL,
-  `nearby` text COLLATE utf8_unicode_ci NOT NULL
+  `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `facilities`
+--
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `footers_about`
@@ -106,10 +158,32 @@ ALTER TABLE `footers_sosmed`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `hotel`
+-- Indexes for table `hotel_detail`
 --
-ALTER TABLE `hotel`
+ALTER TABLE `hotel_detail`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hotel_facility`
+--
+ALTER TABLE `hotel_facility`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_hotel` (`id_hotel`),
+  ADD KEY `id_facility` (`id_facility`);
+
+--
+-- Indexes for table `hotel_photo`
+--
+ALTER TABLE `hotel_photo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_hotel` (`id_hotel`);
+
+--
+-- Indexes for table `hotel_room`
+--
+ALTER TABLE `hotel_room`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_hotel` (`id_hotel`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -128,10 +202,45 @@ ALTER TABLE `footers_sosmed`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `hotel`
+-- AUTO_INCREMENT for table `hotel_detail`
 --
-ALTER TABLE `hotel`
+ALTER TABLE `hotel_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotel_photo`
+--
+ALTER TABLE `hotel_photo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotel_room`
+--
+ALTER TABLE `hotel_room`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `hotel_facility`
+--
+ALTER TABLE `hotel_facility`
+  ADD CONSTRAINT `hotel_facility_ibfk_1` FOREIGN KEY (`id_facility`) REFERENCES `facilities` (`id`),
+  ADD CONSTRAINT `hotel_facility_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
+
+--
+-- Constraints for table `hotel_photo`
+--
+ALTER TABLE `hotel_photo`
+  ADD CONSTRAINT `hotel_photo_ibfk_1` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
+
+--
+-- Constraints for table `hotel_room`
+--
+ALTER TABLE `hotel_room`
+  ADD CONSTRAINT `hotel_room_ibfk_1` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
