@@ -20,6 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  'POST /features/': 'FeaturesController/features',
+  'GET /features/': 'FeaturesController/getFeatures',
+
+  'POST /user/': 'UserController/User',
+  'GET /user/': 'UserController/getUser',
+
+  'GET /user/id/:id': 'UserController/UserByID',
+  
 
   'POST /footers/about': 'FootersController/footersAbout',
   'POST /footers/sosmed': 'FootersController/footersSosmed',
