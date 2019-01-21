@@ -25,6 +25,7 @@ module.exports = {
             });
         }
         return res.status(200).send({
+            data: data,
             message: 'Data berhasil di ambil'
         });
     }
