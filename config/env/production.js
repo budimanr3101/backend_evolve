@@ -149,7 +149,7 @@ module.exports = {
     ***************************************************************************/
     cors: {
       allowOrigins: [
-        'https://backend-evolve.herokuapp.com',
+        '*',
       ]
     },
 
