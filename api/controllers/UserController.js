@@ -27,7 +27,8 @@ module.exports = {
             });
         }
         return res.status(200).send({
-            message: 'Data berhasil di ambil'
+            message: 'Data berhasil di ambil',
+            user : data
         });
     },
 
