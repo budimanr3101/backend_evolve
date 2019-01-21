@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2019 at 01:52 PM
+-- Generation Time: Jan 21, 2019 at 03:22 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -110,6 +110,17 @@ CREATE TABLE `hotel_detail` (
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Hotel | Apartment'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `hotel_detail`
+--
+
+INSERT INTO `hotel_detail` (`id`, `name`, `address`, `phone`, `city`, `rating`, `price`, `type`) VALUES
+(1, 'Kempinski', 'Bundaran HI', '021564526\n', 'Jakarta Pusat\n', 5, 3000000, 'Hotel'),
+(2, 'Four Season', 'Gatot Subroto', '0215465467\n', 'Jakarta Selatan', 5, 4500000, 'Hotel'),
+(3, 'Mulia', 'Bundaran Senayan', '0218679879', 'Jakarta Selatan', 5, 5000000, 'Hotel'),
+(4, 'Ritz Carlton', 'Gatot Mega Kuningan', '0218896789', 'Jakarta Selatan', 5, 4000000, 'Hotel'),
+(5, 'All Season', 'Bundaran Gatot', '021627682', 'Jakarta Barat', 3, 1000000, 'Hotel');
+
 -- --------------------------------------------------------
 
 --
@@ -121,6 +132,28 @@ CREATE TABLE `hotel_facility` (
   `id_hotel` int(11) NOT NULL,
   `id_facility` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `hotel_facility`
+--
+
+INSERT INTO `hotel_facility` (`id`, `id_hotel`, `id_facility`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 1, 4),
+(5, 2, 4),
+(6, 2, 5),
+(7, 2, 6),
+(8, 3, 1),
+(9, 3, 3),
+(10, 3, 4),
+(11, 4, 4),
+(12, 4, 5),
+(13, 4, 1),
+(14, 5, 1),
+(15, 5, 2),
+(16, 5, 3);
 
 -- --------------------------------------------------------
 
@@ -134,6 +167,21 @@ CREATE TABLE `hotel_photo` (
   `photo_url` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `hotel_photo`
+--
+
+INSERT INTO `hotel_photo` (`id`, `id_hotel`, `photo_url`) VALUES
+(1, 1, 'photo1.png'),
+(2, 1, 'photo2.png'),
+(3, 2, 'photo1.png'),
+(4, 2, 'photo2.png'),
+(5, 2, 'photo3.png'),
+(6, 4, 'photo1.png'),
+(7, 3, 'photo1.png'),
+(8, 5, 'photo1.png'),
+(9, 5, 'photo2.png');
+
 -- --------------------------------------------------------
 
 --
@@ -146,6 +194,23 @@ CREATE TABLE `hotel_room` (
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `status` enum('Tersedia','Penuh') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `hotel_room`
+--
+
+INSERT INTO `hotel_room` (`id`, `id_hotel`, `type`, `status`) VALUES
+(1, 1, 'Twinbed', 'Tersedia'),
+(2, 1, 'Queen', 'Tersedia'),
+(3, 1, 'King', 'Penuh'),
+(4, 2, 'King', 'Tersedia'),
+(5, 3, 'Twin', 'Tersedia'),
+(6, 3, 'Queen', 'Tersedia'),
+(7, 4, 'Twin', 'Tersedia'),
+(8, 4, 'King', 'Penuh'),
+(9, 5, 'Twin', 'Penuh'),
+(10, 5, 'Queen', 'Tersedia'),
+(11, 5, 'King', 'Tersedia');
 
 --
 -- Indexes for dumped tables
@@ -223,25 +288,25 @@ ALTER TABLE `footers_sosmed`
 -- AUTO_INCREMENT for table `hotel_detail`
 --
 ALTER TABLE `hotel_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `hotel_facility`
 --
 ALTER TABLE `hotel_facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `hotel_photo`
 --
 ALTER TABLE `hotel_photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `hotel_room`
 --
 ALTER TABLE `hotel_room`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
