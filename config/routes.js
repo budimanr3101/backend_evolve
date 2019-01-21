@@ -25,7 +25,17 @@ module.exports.routes = {
   'POST /footers/sosmed': 'FootersController/footersSosmed',
 
   'GET /footers/about': 'FootersController/getFootersAbout',
-  'GET /footers/sosmed': 'FootersController/getFootersSosmed'
+  'GET /footers/sosmed': 'FootersController/getFootersSosmed',
+
+  'POST /facility': 'HotelController/addFacility',
+  'POST /hotel': 'HotelController/addHotel',
+  'POST /hotel/photos': 'HotelController/addHotelPhotos',
+  'POST /hotel/room': 'HotelController/addHotelRoom',
+  'POST /hotel/facility': 'HotelController/addHotelFacility',
+
+  'GET /hotel/': 'HotelController/list',
+  'GET /hotel/:id': 'HotelController/listById',
+
   /***************************************************************************
   *                                                                          *
   * More custom routes here...                                               *

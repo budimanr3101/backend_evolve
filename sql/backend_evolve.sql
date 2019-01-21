@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2019 at 11:17 AM
+-- Generation Time: Jan 21, 2019 at 01:52 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -11,7 +11,6 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -34,6 +33,18 @@ CREATE TABLE `facilities` (
   `facility_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `facilities`
+--
+
+INSERT INTO `facilities` (`id`, `facility_name`, `icon`) VALUES
+(1, 'Wifi', 'wifi.png'),
+(2, 'AC', 'ac.png'),
+(3, 'Parking', 'parking.png'),
+(4, 'Elevator', 'elevator.png'),
+(5, 'Swimming Pool', 'swimmingpool.png'),
+(6, 'Gym', 'gym.png');
 
 -- --------------------------------------------------------
 
@@ -133,7 +144,7 @@ CREATE TABLE `hotel_room` (
   `id` int(11) NOT NULL,
   `id_hotel` int(11) NOT NULL,
   `type` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `status` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+  `status` enum('Tersedia','Penuh') COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -191,6 +202,12 @@ ALTER TABLE `hotel_room`
 --
 
 --
+-- AUTO_INCREMENT for table `facilities`
+--
+ALTER TABLE `facilities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `footers_about`
 --
 ALTER TABLE `footers_about`
@@ -206,6 +223,12 @@ ALTER TABLE `footers_sosmed`
 -- AUTO_INCREMENT for table `hotel_detail`
 --
 ALTER TABLE `hotel_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `hotel_facility`
+--
+ALTER TABLE `hotel_facility`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -228,8 +251,8 @@ ALTER TABLE `hotel_room`
 -- Constraints for table `hotel_facility`
 --
 ALTER TABLE `hotel_facility`
-  ADD CONSTRAINT `hotel_facility_ibfk_1` FOREIGN KEY (`id_facility`) REFERENCES `facilities` (`id`),
-  ADD CONSTRAINT `hotel_facility_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
+  ADD CONSTRAINT `hotel_facility_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`),
+  ADD CONSTRAINT `hotel_facility_ibfk_3` FOREIGN KEY (`id_facility`) REFERENCES `facilities` (`id`);
 
 --
 -- Constraints for table `hotel_photo`
