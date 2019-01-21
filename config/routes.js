@@ -26,6 +26,8 @@ module.exports.routes = {
   'POST /user/': 'UserController/User',
   'GET /user/': 'UserController/getUser',
 
+  'POST /booking/': 'BookingController/Booking',
+
   'GET /user/id/:id': 'UserController/UserByID',
   
 

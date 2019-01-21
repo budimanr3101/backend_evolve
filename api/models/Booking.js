@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+  tableName: 'booking',
 
   attributes: {
 
@@ -30,6 +31,10 @@ module.exports = {
       type: "string",
       required: true
     },
+    id_hotel :{
+      type: "string",
+      required: true
+    },
     check_in :{
       type: "string",
       required: true
@@ -42,19 +47,19 @@ module.exports = {
       type: "string",
       required: true
     },
-    price :{
-      type: "string",
-      required: true
-    },
-    id_hotel :{
-      type: "string",
-      required: true
-    },
     tamu :{
       type: "string",
       required: true
     },
     kamar :{
+      type: "string",
+      required: true
+    },
+    price :{
+      type: "string",
+      required: true
+    },
+    created_at :{
       type: "string",
       required: true
     },
