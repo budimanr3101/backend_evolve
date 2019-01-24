@@ -21,6 +21,15 @@ module.exports = {
         return res.status(200).send({
             message: "Data berhasil di tambah",
         });
+    },
+
+    bookingbykeyword: async function (req, res) {
+        const data = await Hotel.find({
+            address: { contains: req.params.address }
+        });
+    
+        return res.status(200).send(data);
+
     }
 
 };
