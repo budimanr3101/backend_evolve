@@ -254,6 +254,7 @@ module.exports = {
     ***************************************************************************/
     onlyAllowOrigins: [
       'https://backend-evolve.herokuapp.com',
+      'https://frontend-evolve.herokuapp.com',
     ],
 
 
