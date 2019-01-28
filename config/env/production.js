@@ -47,6 +47,8 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
+      adapter: 'sails-mysql',
+      url: 'mysql://l2l6aa42gynya24e:c5krxipwl11nvy2c@p2d0untihotgr5f6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/clokepjctrcu3c4e'
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -221,7 +223,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      // secure: true,
+      secure: true,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
@@ -250,10 +252,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    // onlyAllowOrigins: [
-    //   'https://example.com',
-    //   'https://staging.example.com',
-    // ],
+    onlyAllowOrigins: [
+      'https://backend-evolve.herokuapp.com',
+      'https://frontend-evolve.herokuapp.com',
+    ],
 
 
     /***************************************************************************
@@ -322,7 +324,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
