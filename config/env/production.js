@@ -253,7 +253,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'http://localhost',
+      'http://localhost:3000',
       'https://backend-evolve.herokuapp.com',
       'https://frontend-evolve.herokuapp.com',
     ],
