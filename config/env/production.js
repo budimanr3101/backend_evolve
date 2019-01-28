@@ -150,7 +150,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
-      allowOrigins: '*'
+      allRoutes: false,
+      allowOrigins: '*',
+      allowCredentials: false,
       // allowOrigins: [
       //   'https://example.com',
       // ]
