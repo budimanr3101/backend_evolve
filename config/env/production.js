@@ -150,6 +150,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
+      origin: '*'
       // allowOrigins: [
       //   'https://example.com',
       // ]
@@ -252,11 +253,11 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    onlyAllowOrigins: [
-      'http://localhost:3000',
-      'https://backend-evolve.herokuapp.com',
-      'https://frontend-evolve.herokuapp.com',
-    ],
+    // onlyAllowOrigins: [
+    //   'http://localhost:3000',
+    //   'https://backend-evolve.herokuapp.com',
+    //   'https://frontend-evolve.herokuapp.com',
+    // ],
 
 
     /***************************************************************************
