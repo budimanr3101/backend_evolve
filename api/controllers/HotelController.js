@@ -27,7 +27,6 @@ module.exports = {
             phone: req.body.phone,
             city: req.body.city,
             rating: req.body.rating,
-            price: req.body.price,
             type: req.body.type,
         });
         return res.status(200).send({
@@ -48,6 +47,7 @@ module.exports = {
             id_hotel: req.body.id_hotel,
             type: req.body.type,
             status: req.body.status,
+            price: req.body.price,
         });
         return res.status(200).send({
             message: "Room berhasil ditambahkan ke Hotel"
@@ -63,7 +63,10 @@ module.exports = {
         });
     },
     list: async (req, res) => {
-        const data = await Hotel.find();
+        const data = await Hotel.find().populate('rooms', {
+            sort: 'price ASC',
+            limit: 1
+        }); 
         return res.status(200).send({
             message: "List data Hotel",
             data: data
@@ -72,6 +75,8 @@ module.exports = {
     listById: async (req, res) => {
         const data = await Hotel.findOne({
             id: req.param('id')
+        }).populate('rooms', {
+            sort: 'price ASC'
         });
         if (!data) {
             return res.status(404).send({

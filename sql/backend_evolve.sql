@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2019 at 02:02 PM
+-- Generation Time: Jan 30, 2019 at 01:56 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -21,6 +21,24 @@ SET time_zone = "+00:00";
 --
 -- Database: `backend_evolve`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `check_in` date NOT NULL,
+  `check_out` date NOT NULL,
+  `duration` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `id_hotel` int(11) NOT NULL,
+  `tamu` int(11) NOT NULL,
+  `kamar` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -45,6 +63,19 @@ INSERT INTO `facilities` (`id`, `facility_name`, `icon`) VALUES
 (4, 'Elevator', 'elevator.png'),
 (5, 'Swimming Pool', 'swimmingpool.png'),
 (6, 'Gym', 'gym.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `features`
+--
+
+CREATE TABLE `features` (
+  `id` int(5) NOT NULL,
+  `features_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `path` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -263,14 +294,51 @@ INSERT INTO `room_photo` (`id`, `id_room`, `photo_url`) VALUES
 (32, 11, 'room2.png'),
 (33, 11, 'room3.png');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `nama_depan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nama_belakang` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tanggal_lahir` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `handphone` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` enum('pria','wanita') COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `nama_depan`, `nama_belakang`, `tanggal_lahir`, `handphone`, `gender`) VALUES
+(1, 'budiman', 'rahardjo', '31jan1991', '08978582314', 'pria'),
+(2, 'rahardjo', 'budiman', '30Jan1990', '08978582315', 'wanita');
+
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_hotel` (`id_hotel`);
+
+--
 -- Indexes for table `facilities`
 --
 ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `features`
+--
+ALTER TABLE `features`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -321,8 +389,20 @@ ALTER TABLE `room_photo`
   ADD KEY `id_room` (`id_room`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `facilities`
@@ -373,8 +453,21 @@ ALTER TABLE `room_photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
 
 --
 -- Constraints for table `hotel_facility`
