@@ -76,8 +76,7 @@ module.exports = {
         const data = await Hotel.findOne({
             id: req.param('id')
         }).populate('rooms', {
-            sort: 'price ASC',
-            limit: 1
+            sort: 'price ASC'
         });
         if (!data) {
             return res.status(404).send({
