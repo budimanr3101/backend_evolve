@@ -36,23 +36,14 @@ module.exports = {
       type: 'number',
       required: true
     },
-    price: {
-      type: 'number',
-      required: true
-    },
     type: {
       type: 'string',
       required: true
     },
-    booking: {
-      collection: 'Booking',
-      via: 'id_hotel'
-    },
-    room: {
+    rooms: {
       collection: 'HotelRoom',
       via: 'id_hotel'
-    },
-    // room: { collection: 'hotelroom', via: 'hotelr', required: true },
+    }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

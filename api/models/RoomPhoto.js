@@ -1,36 +1,20 @@
 /**
- * HotelRoom.js
+ * RoomPhoto.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
 module.exports = {
-  tableName: 'hotel_room',
+  tableName: 'room_photo',
   attributes: {
 
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id: {
-      type: 'number',
-      autoIncrement: true
-    },
-    id_hotel: {
-      model: "Hotel"
-    },
-    type: {
-      type: 'string',
-      required: true
-    },
-    status: {
-      type: 'string',
-      required: true
-    },
-    price: {
-      type: 'number',
-      required: true
-    },
+    id: { type:'number', autoIncrement: true },
+    id_room: { type:'number', required: true },
+    photo_url: { type:'string', required: true },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -44,3 +28,4 @@ module.exports = {
   },
 
 };
+
