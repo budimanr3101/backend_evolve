@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2019 at 02:46 PM
+-- Generation Time: Jan 30, 2019 at 02:57 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -36,6 +36,8 @@ CREATE TABLE `booking` (
   `duration` int(11) NOT NULL,
   `price` int(11) NOT NULL,
   `id_hotel` int(11) NOT NULL,
+  `id_room` int(11) NOT NULL,
+  `status` enum('unpaid','paid') COLLATE utf8_unicode_ci NOT NULL,
   `tamu` int(11) NOT NULL,
   `kamar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -327,7 +329,8 @@ INSERT INTO `user` (`id`, `nama_depan`, `nama_belakang`, `tanggal_lahir`, `handp
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_hotel` (`id_hotel`);
+  ADD KEY `id_hotel` (`id_hotel`),
+  ADD KEY `id_room` (`id_room`);
 
 --
 -- Indexes for table `facilities`
@@ -467,7 +470,8 @@ ALTER TABLE `user`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`);
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_hotel`) REFERENCES `hotel_detail` (`id`),
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_room`) REFERENCES `hotel_room` (`id`);
 
 --
 -- Constraints for table `hotel_facility`
