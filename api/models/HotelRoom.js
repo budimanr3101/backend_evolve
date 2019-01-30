@@ -12,11 +12,21 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id: { type:'number', autoIncrement: true },
-    id_hotel: { type:'number', required: true },
-    type: { type:'string', required: true },
-    status: { type:'string', required: true },
-
+    id: {
+      type: 'number',
+      autoIncrement: true
+    },
+    id_hotel: {
+      model: 'Hotel'
+    },
+    type: {
+      type: 'string',
+      required: true
+    },
+    status: {
+      type: 'string',
+      required: true
+    },
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
     //  ╚═╝╩ ╩╚═╝╚═╝═╩╝╚═╝
@@ -29,4 +39,3 @@ module.exports = {
   },
 
 };
-

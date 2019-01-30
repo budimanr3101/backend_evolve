@@ -27,7 +27,11 @@ module.exports.routes = {
   'GET /user/': 'UserController/getUser',
 
   'POST /booking/': 'BookingController/Booking',
-  'GET /booking/hotel/:address': 'BookingController/BookingByKeyword',
+  'GET /booking/hotel/search': 'BookingController/BookingByKeyword',
+  
+  'GET /booking/hotel/check_in/:check_in': 'BookingController/BookingByDate',
+  'GET /booking/hotel/status/:status': 'BookingController/BookingByStatus',
+  
 
   'GET /user/id/:id': 'UserController/UserByID',
 
