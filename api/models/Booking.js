@@ -23,47 +23,46 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
-    id :{
+    id: {
       type: "number",
       autoIncrement: true
     },
-    id_user :{
+    id_user: {
       type: "string",
       required: true
     },
-    id_hotel :{
+    id_hotel: {
+      model: 'Hotel',
+    },
+    check_in: {
       type: "string",
       required: true
     },
-    check_in :{
+    check_out: {
       type: "string",
       required: true
     },
-    check_out :{
+    duration: {
       type: "string",
       required: true
     },
-    duration :{
+    tamu: {
       type: "string",
       required: true
     },
-    tamu :{
+    kamar: {
       type: "string",
       required: true
     },
-    kamar :{
+    price: {
       type: "string",
       required: true
     },
-    price :{
+    created_at: {
       type: "string",
       required: true
     },
-    created_at :{
-      type: "string",
-      required: true
-    },
+
   },
 
 };
-
