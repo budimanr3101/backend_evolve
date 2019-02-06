@@ -27,12 +27,9 @@ module.exports = {
       type: "number",
       autoIncrement: true
     },
-    id_user: {
-      type: "string",
+    id_user : {
+      type: "number",
       required: true
-    },
-    id_hotel: {
-      model: 'Hotel',
     },
     check_in: {
       type: "string",
@@ -42,27 +39,32 @@ module.exports = {
       type: "string",
       required: true
     },
-    duration: {
+    duration :{
+      type: "number",
+      required: true
+    },
+    price :{
+      type: "number",
+      required: true
+    },
+    id_hotel: {
+      model: 'Hotel'
+    },
+    id_room :{
+      type: "number",
+      required: true
+    },
+    status :{
       type: "string",
       required: true
     },
-    tamu: {
-      type: "string",
+    tamu :{
+      type: "number",
       required: true
     },
-    kamar: {
-      type: "string",
+    kamar :{
+      type: "number",
       required: true
     },
-    price: {
-      type: "string",
-      required: true
-    },
-    created_at: {
-      type: "string",
-      required: true
-    },
-
-  },
-
+  }
 };
