@@ -150,6 +150,9 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cors: {
+      allRoutes: true,
+      allowOrigins: '*',
+      allowCredentials: false,
       // allowOrigins: [
       //   'https://example.com',
       // ]
@@ -223,7 +226,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     cookie: {
-      secure: true,
+      secure: false,
       maxAge: 24 * 60 * 60 * 1000,  // 24 hours
     },
 
@@ -253,6 +256,7 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
+      'http://localhost:3000',
       'https://backend-evolve.herokuapp.com',
       'https://frontend-evolve.herokuapp.com',
     ],
