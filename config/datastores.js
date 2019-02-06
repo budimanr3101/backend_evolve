@@ -52,7 +52,7 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
     
     adapter:'sails-mysql',
-    url: 'mysql://root@localhost:3306/backend_evolve',
+    url: 'mysql://l2l6aa42gynya24e:c5krxipwl11nvy2c@p2d0untihotgr5f6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/clokepjctrcu3c4e',
   },
 
 };
