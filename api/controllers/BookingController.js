@@ -20,6 +20,7 @@ module.exports = {
     });
     return res.status(200).send({
       message: "Data berhasil di tambah",
+      data: data
     });
   },
 
@@ -32,10 +33,10 @@ module.exports = {
           contains: req.query.address
         }
       })
-      .populate('room', {
+      .populate('rooms', {
         status: 'Tersedia'
       })
-      .populate('booking', {
+      .populate('date', {
         check_in: {
           '>=': check_in
         },
