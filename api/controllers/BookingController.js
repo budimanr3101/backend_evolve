@@ -15,10 +15,10 @@ module.exports = {
           contains: req.query.address
         }
       })
-      .populate('room', {
+      .populate('rooms', {
         status: 'Tersedia'
       })
-      .populate('booking', {
+      .populate('date', {
         check_in: {
           '>=': check_in
         },
