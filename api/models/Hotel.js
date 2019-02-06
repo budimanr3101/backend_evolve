@@ -12,13 +12,34 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    id: { type:'number', autoIncrement: true },
-    name: { type:'string', required:true },
-    address: { type:'string', required:true },
-    phone: { type:'string', required:true },
-    city: { type:'string', required:true },
-    rating: { type:'number', required:true },
-    type: { type:'string', required:true },
+    id: {
+      type: 'number',
+      autoIncrement: true
+    },
+    name: {
+      type: 'string',
+      required: true
+    },
+    address: {
+      type: 'string',
+      required: true
+    },
+    phone: {
+      type: 'string',
+      required: true
+    },
+    city: {
+      type: 'string',
+      required: true
+    },
+    rating: {
+      type: 'number',
+      required: true
+    },
+    type: {
+      type: 'string',
+      required: true
+    },
     rooms: {
       collection: 'HotelRoom',
       via: 'id_hotel'
@@ -36,4 +57,3 @@ module.exports = {
   },
 
 };
-
