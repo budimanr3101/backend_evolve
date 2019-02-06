@@ -43,7 +43,12 @@ module.exports = {
     rooms: {
       collection: 'HotelRoom',
       via: 'id_hotel'
+    },
+    date: {
+      collection: 'Booking',
+      via: 'id_hotel'
     }
+
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
