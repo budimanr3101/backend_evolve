@@ -42,7 +42,7 @@ module.exports = {
   bookingbystatus: async function (req, res) {
     const data = await HotelRoom.find({
       status: {
-        contains: req.params.status
+        contains: req.query.status
       },
     });
     return res.status(200).send(data);
