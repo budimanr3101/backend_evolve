@@ -7,9 +7,9 @@
 
 module.exports = {
   bookingbykeyword: async function (req, res) {
-    const moment = require('moment')
-    const check_in = moment(req.query.check_in).format('yyyy-mm-dd h:i:s')
-    const check_out = moment(req.query.check_out).format('yyyy-mm-dd h:i:s')
+    const moment = require('moment');
+    const check_in = moment(req.query.check_in).format('yyyy-mm-dd h:i:s');
+    const check_out = moment(req.query.check_out).format('yyyy-mm-dd h:i:s');
     const row = await Hotel.find({
         address: {
           contains: req.query.address
@@ -25,7 +25,7 @@ module.exports = {
         check_out: {
           '<=': check_out
         }
-      })
+      });
     return res.status(200).send({
       message: "Data di temukan",
       data: row
